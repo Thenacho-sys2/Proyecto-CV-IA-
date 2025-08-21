@@ -2,23 +2,81 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-    <title>{{ title }}</title>
+    <title>CartaPerfecta - Resultado</title>
     <link rel="stylesheet" href="{{ url_for('static', path='style.css') }}">
 </head>
 <body>
-    <div class="container">
-        <h1>{{ title }}</h1>
-        <div class="result">
-            <h2>CV y Carta de Presentación para {{ name }}</h2>
-            <h3>Posición: {{ position }}</h3>
-            <div class="generated-content">
-                {{ generated_text | safe }}
+    <h1>CartaPerfecta</h1>
+    <div class="result">
+        <h2>CV y Carta de Presentación para {{ name }}</h2>
+        <h3>Posición: {{ position }}</h3>
+        
+        <div class="edit-sections">
+            <div class="edit-section">
+                <h4>Currículum Vitae</h4>
+                <textarea id="cv-content" class="edit-content" rows="15">{{ cv_content }}</textarea>
             </div>
-            <div class="actions">
-                <a href="/download-pdf" class="button">Descargar PDF</a>
-                <a href="/" class="button">Generar otro</a>
+            
+            <div class="edit-section">
+                <h4>Carta de Presentación</h4>
+                <textarea id="cover-letter-content" class="edit-content" rows="15">{{ cover_letter_content }}</textarea>
             </div>
         </div>
+
+        <div class="actions">
+            <button onclick="updateAndDownload('cv')" class="button">Descargar CV (PDF)</button>
+            <button onclick="updateAndDownload('cover')" class="button">Descargar Carta (PDF)</button>
+            <button onclick="updateAndDownloadBoth()" class="button primary">Descargar Ambos (PDF)</button>
+            <a href="/" class="button secondary">Generar Nuevo</a>
+        </div>
     </div>
+
+    <script>
+        function updateAndDownload(type) {
+            const cvContent = document.getElementById('cv-content').value;
+            const coverContent = document.getElementById('cover-letter-content').value;
+            
+            fetch('/update-content', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({
+                    cv_content: cvContent,
+                    cover_letter_content: coverContent,
+                    type: type
+                })
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.success) {
+                    window.location.href = `/download-pdf?type=${type}`;
+                }
+            });
+        }
+
+        function updateAndDownloadBoth() {
+            const cvContent = document.getElementById('cv-content').value;
+            const coverContent = document.getElementById('cover-letter-content').value;
+            
+            fetch('/update-content', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({
+                    cv_content: cvContent,
+                    cover_letter_content: coverContent,
+                    type: 'both'
+                })
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.success) {
+                    window.location.href = '/download-pdf?type=both';
+                }
+            });
+        }
+    </script>
 </body>
 </html>
