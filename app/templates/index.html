@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>{{ title }}</title>
+    <link rel="stylesheet" href="{{ url_for('static', path='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>{{ title }}</h1>
+        <form action="/generate" method="post">
+            <div class="form-group">
+                <label for="name">Nombre:</label>
+                <input type="text" id="name" name="name" required>
+            </div>
+            <div class="form-group">
+                <label for="position">Puesto deseado:</label>
+                <input type="text" id="position" name="position" required>
+            </div>
+            <div class="form-group">
+                <label for="skills">Habilidades:</label>
+                <textarea id="skills" name="skills" required></textarea>
+            </div>
+            <div class="form-group">
+                <label for="experience">Experiencia:</label>
+                <textarea id="experience" name="experience" required></textarea>
+            </div>
+            <div class="form-group">
+                <label for="style">Estilo:</label>
+                <select id="style" name="style" required>
+                    <option value="profesional">Profesional</option>
+                    <option value="creativo">Creativo</option>
+                    <option value="académico">Académico</option>
+                </select>
+            </div>
+            <button type="submit">Generar</button>
+        </form>
+    </div>
+</body>
+</html>

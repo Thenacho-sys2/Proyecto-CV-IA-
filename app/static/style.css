@@ -1,0 +1,207 @@
+/* Estilos generales */
+body {
+  font-family: Arial, sans-serif;
+  line-height: 1.2;
+  color: #333;
+  margin: 0;
+  padding: 20px;
+  background-color: #fff;
+}
+
+.container {
+  max-width: 650px;
+  margin: 0 auto;
+  background: #fff;
+  padding: 0;
+}
+
+/* Controles */
+.controls {
+  margin-bottom: 20px;
+  padding: 12px;
+  background: #f8f9fa;
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.controls label {
+  font-weight: 500;
+}
+
+.controls select,
+.controls input {
+  padding: 6px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  font-size: 14px;
+}
+
+/* Secciones */
+.section {
+  margin-bottom: 24px;
+  background: #ffffff;
+}
+
+/* Estilos específicos del CV */
+.cv-container {
+  font-family: Arial, sans-serif;
+  line-height: 1.15;
+  color: #333;
+  margin-bottom: 20px;
+  padding: 0;
+}
+
+.cv-header {
+  text-align: left;
+  margin-bottom: 12px;
+}
+
+.cv-name {
+  font-size: 20px;
+  margin: 0 0 3px 0;
+  color: #000;
+  font-weight: bold;
+  line-height: 1;
+}
+
+.cv-contact {
+  font-size: 11px;
+  color: #333;
+  margin: 0;
+  line-height: 1.2;
+}
+
+.cv-section {
+  margin-bottom: 12px;
+}
+
+.cv-section-title {
+  font-size: 11px;
+  color: #000;
+  margin: 0 0 4px 0;
+  text-transform: uppercase;
+  font-weight: bold;
+  line-height: 1;
+}
+
+.cv-item {
+  margin-bottom: 8px;
+}
+
+.cv-item-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  margin: 0;
+}
+
+.cv-item-title {
+  font-weight: bold;
+  color: #333;
+  font-size: 11px;
+  line-height: 1.2;
+  margin: 0;
+}
+
+.cv-item-date {
+  color: #333;
+  font-size: 11px;
+  line-height: 1.2;
+  margin: 0;
+}
+
+.cv-item-content {
+  font-size: 11px;
+  margin: 2px 0 0 0;
+  line-height: 1.2;
+}
+
+.cv-item ul {
+  margin: 2px 0 0 0;
+  padding-left: 15px;
+  list-style-type: disc;
+}
+
+.cv-item li {
+  margin: 0 0 1px 0;
+  font-size: 11px;
+  line-height: 1.2;
+  padding-left: 0;
+}
+
+/* Editor Quill */
+.ql-container {
+  font-family: Arial, sans-serif !important;
+  font-size: 11px !important;
+  line-height: 1.2 !important;
+  border: none !important;
+}
+
+.ql-editor {
+  padding: 0 !important;
+  margin: 0 !important;
+}
+
+.ql-toolbar {
+  display: none !important;
+}
+
+/* Botones */
+button {
+  background-color: #007bff;
+  color: white;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 14px;
+  transition: background-color 0.2s;
+  margin-top: 16px;
+}
+
+button:hover {
+  background-color: #0056b3;
+}
+
+/* Enlaces */
+.back-link {
+  display: inline-block;
+  margin-top: 20px;
+  color: #007bff;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.back-link:hover {
+  color: #0056b3;
+}
+
+/* Utilidades */
+h2 {
+  color: #333;
+  margin-top: 0;
+  margin-bottom: 16px;
+  font-size: 18px;
+}
+
+/* Ajustes para impresión */
+@media print {
+  body {
+    background: none;
+    margin: 0;
+    padding: 0;
+  }
+  
+  .container {
+    max-width: none;
+    padding: 0;
+  }
+  
+  .controls,
+  button,
+  .back-link {
+    display: none !important;
+  }
+}
